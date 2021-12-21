@@ -21,14 +21,22 @@
         float: left;
     } */
 
-    .addnewtask{
-      display: ;
-    }
+    /* .addnewtask {
+      padding-left: 0p;
+    } */
+
+    .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+      width: 100%;
+      padding-right: var(--bs-gutter-x, 0.75rem);
+      padding-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+  }
 .edit {
 padding: 4px 19px ;
 
 }
 .delete {
-  
+
 }
 
