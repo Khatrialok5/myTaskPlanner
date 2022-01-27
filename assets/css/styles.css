@@ -12,6 +12,14 @@
         margin-top: 20px;
         
     }
+    #dateDisplay{
+      
+      float: right;
+      font-size: 1.5rem;
+  background: -webkit-linear-gradient(#ee0979 50%, #ff6a00 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    }
 
     /* .addnewtask {
         margin-left: 0px;

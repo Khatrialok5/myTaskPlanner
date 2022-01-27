@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
     <link href="./favicon.ico" rel="icon" type="image/x-icon" />
 
-
+    <script src="./assets/js/index.js" defer></script>
 </head>
 
 <body>
@@ -43,7 +43,9 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="tasks">Tasks</h2>
-          
+                    <div id='dateDisplay'>
+                      DATE: 
+                    </div>
                     <div class="container mt-5 addnewtask">
                       <button
                         type="button"
@@ -74,7 +76,14 @@
                                     type="text"
                                     class="form-control"
                                     id="newTaskNameInput"
+                                   
                                   />
+                                  <div class="invalid-feedback">
+                                    Please enter a valid Name 
+                                  </div>
+                                  <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                   <label for="newTaskDescription">Description:</label>
@@ -82,6 +91,12 @@
                                     class="form-control"
                                     id="newTaskDescription"
                                   ></textarea>
+                                  <div class="invalid-feedback">
+                                    Please enter a valid Description 
+                                  </div>
+                                  <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
                                 </div>
                                 <div class="form-row">
                                   <div class="form-group col">
@@ -91,6 +106,12 @@
                                       class="form-control"
                                       id="newTaskAssignedTo"
                                     />
+                                    <div class="invalid-feedback">
+                                      Please enter a valid Assigne 
+                                    </div>
+                                    <div class="valid-feedback">
+                                      Looks good!
+                                    </div>
                                   </div>
                                   <div class="form-group col">
                                     <label for="newTaskDueDate">Due Date:</label>
@@ -99,9 +120,15 @@
                                       class="form-control"
                                       id="newTaskDueDate"
                                     />
+                                    <div class="invalid-feedback">
+                                      Please enter a valid Date 
+                                    </div>
+                                    <div class="valid-feedback">
+                                      Looks good!
+                                    </div>
                                   </div>
                                 </div>
-          
+                                <div class="form-group col">
                                 <label for="status">Status:</label>
                                 <br />
                                 <select
@@ -110,21 +137,28 @@
                                   aria-label="Example select with button addon"
                                 >
                                   <!-- <select class="select" id="state"> -->
-                                  <option selected>Choose...</option>
+                                  <!-- <option selected>Choose...</option> -->
                                   <option value="1">TODO</option>
                                   <option value="2">IN PROGRESS</option>
                                   <option value="3">REVIEW</option>
                                   <option value="4">DONE</option>
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please enter a valid Date 
+                                </div>
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>
                                 <br /><br />
-                                <button type="submit" class="btn btn-primary btn-lg">
+                                <button type="submit" class="btn btn-primary btn-lg" id='submitBtn'>
                                   Submit
                                 </button>
-                                <input
+                                <button
                                   class="btn btn-primary btn-lg"
                                   type="reset"
-                                  value="Reset"
-                                />
+                                  id='resetBtn'
+                                >Reset</button>
                               </form>
                             </div>
                           </div>
