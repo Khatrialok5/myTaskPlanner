@@ -45,12 +45,12 @@
     
 // // }
 
-// Dispaly of today date on the index.html
-// const todayDate=new Date().toLocaleDateString()
-// var dateDisplay = document.querySelector('#dateDisplay')
-// let span = document.createElement("SPAN");
-//  span.innerHTML = todayDate
-//  dateDisplay.appendChild(span)
+//Dispaly of today date on the index.html
+const todayDate=new Date().toLocaleDateString()
+var dateDisplay = document.querySelector('#dateDisplay')
+let span = document.createElement("SPAN");
+ span.innerHTML = todayDate
+ dateDisplay.appendChild(span)
 
 
 

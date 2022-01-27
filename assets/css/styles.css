@@ -13,12 +13,17 @@
         
     }
     #dateDisplay{
-      
+      padding-top: 20px;
       float: right;
       font-size: 1.5rem;
-  background: -webkit-linear-gradient(#ee0979 50%, #ff6a00 50%);
+  background: -webkit-linear-gradient(45deg,#ee0979 50%, #ff6a00 25%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+    }
+    .title-date-container{
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
     }
 
     /* .addnewtask {
@@ -44,7 +49,9 @@
 padding: 4px 19px ;
 
 }
-.delete {
 
+footer{
+  background-color: #343a40;
+  color: rgba(255,255,255,.25);
 }
 
