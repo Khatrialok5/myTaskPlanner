@@ -1,5 +1,3 @@
-
-
 // const newTaskNameInput = document.querySelector('#newTaskForm')
 // const nameValidation=document.querySelector('#newTaskNameInput')
 // const descriptionValidation=document.querySelector('#newTaskDescription')
@@ -42,33 +40,47 @@
 // //     nameValidation.value=""
 // //     descriptionValidation.value=""
 // //     assignedToValidation.value=""
-    
+
 // // }
 
+
+// Initialize a new TaskManager with currentId set to 0
+const taskManager = new TaskManager(0);
+
+
 //Dispaly of today date on the index.html
-const todayDate=new Date().toLocaleDateString()
+const todayDate = new Date().toLocaleDateString()
 var dateDisplay = document.querySelector('#dateDisplay')
 let span = document.createElement("SPAN");
- span.innerHTML = todayDate
- dateDisplay.appendChild(span)
+span.innerHTML = todayDate
+dateDisplay.appendChild(span)
 
 
 
 
-//example one
-
+// Select the New Task Form
 const form = document.querySelector("#newTaskForm");
 
+// Select the inputs
+const validateName = document.querySelector("#newTaskNameInput");
+const validateDescription = document.querySelector("#newTaskDescription");
+const validateAssignedTo = document.querySelector("#newTaskAssignedTo");
+const validateDueDate = document.querySelector("#newTaskDueDate");
+const validateStatus = document.querySelector("#status");
+// Add an 'onsubmit' event listener
 form.addEventListener("submit", (event) => {
-  const validateName = document.querySelector("#newTaskNameInput");
-  const validateDescription = document.querySelector("#newTaskDescription");
-  const validateAssignedTo = document.querySelector("#newTaskAssignedTo");
-  const validateDueDate = document.querySelector("#newTaskDueDate");
-  const validateStatus = document.querySelector("#status");
+
+  // Prevent default action
+  event.preventDefault();
+
+  
   let validationFail = 0;
 
-  event.preventDefault();
-  event.stopPropagation();
+
+  //   event.stopPropagation();
+
+  
+
   console.log("Task Name :" + validateName.value.length);
   console.log("Task Description :" + validateDescription.value.length);
   console.log("Task Assigned To :" + validateAssignedTo.value.length);
@@ -103,7 +115,7 @@ form.addEventListener("submit", (event) => {
     validateAssignedTo.classList.add("is-invalid");
     validateAssignedTo.classList.remove("is-valid");
     validationFail++;
-  }  
+  }
   // Form validation for Due Date Field not empty
   // try your own validation for a date in the future
   if (validateDueDate.value) {
@@ -130,5 +142,31 @@ form.addEventListener("submit", (event) => {
   if (validationFail > 0) {
     validationFail = 0;
     return;
+  } else {
+    taskManager.addTask(
+      validateName.value,
+      validateDescription.value,
+      validateAssignedTo.value,
+      validateDueDate.value,
+      validateStatus.value
+    );
+    clearFormFields();
+    taskManager.render();
   }
 });
+
+
+  // Call this to clear all the form fields after the submission
+
+const clearFormFields = () => {
+  validateName.value = "";
+  validateDescription.value = "";
+  validateAssignedTo.value = "";
+  validateStatus.value = "TO DO";
+  validateDueDate.value = "";
+  validateName.classList.remove("is-valid");
+  validateDescription.classList.remove("is-valid");
+  validateAssignedTo.classList.remove("is-valid");
+  validateStatus.classList.remove("is-valid");
+  validateDueDate.classList.remove("is-valid");
+}

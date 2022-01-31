@@ -2,242 +2,203 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>My To-Do App</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
-    <link href="./favicon.ico" rel="icon" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>My To-Do App</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+  <link href="./favicon.ico" rel="icon" type="image/x-icon" />
 
-    <script src="./assets/js/index.js" defer></script>
+
+  <!-- Java script -->
+  <script src="./assets/js/taskManager.js"  defer></script>
+  <script src="./assets/js/index.js" defer></script>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
-        <div class="container"><a class="navbar-brand" href="#">AB</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="!#">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="!#">Log In</a></li>
-                </ul>
+  <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+    <div class="container"><a class="navbar-brand" href="#">ABT</a><button data-bs-toggle="collapse"
+        class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle
+          navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="!#">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="!#">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="text-center text-white masthead">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">My To-Do App</h1>
+        <!-- <h1 class="masthead-subheading mb-0"></h1><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#"></a> -->
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="title-date-container">
+            <h2 class="tasks">Tasks</h2>
+            <div id='dateDisplay'>
+              DATE:
             </div>
-        </div>
-    </nav>
-    <header class="text-center text-white masthead">
-        <div class="masthead-content">
-            <div class="container">
-                <h1 class="masthead-heading mb-0">My To-Do App</h1>
-                <!-- <h1 class="masthead-subheading mb-0"></h1><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#"></a> -->
-            </div>
-        </div>
-        <div class="bg-circle-1 bg-circle"></div>
-        <div class="bg-circle-2 bg-circle"></div>
-        <div class="bg-circle-3 bg-circle"></div>
-        <div class="bg-circle-4 bg-circle"></div>
-    </header>
-    <section>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-                  <div class="title-date-container"> 
-                    <h2 class="tasks">Tasks</h2>
-                    <div id='dateDisplay'>
-                      DATE: 
-                    </div>
+          </div>
+          <div class="container mt-5 addnewtask">
+            <button type="button" class="btn btn-primary addnewtask " data-bs-toggle="modal" data-bs-target="#myModal">
+              Add New Task
+            </button>
+            <br><br>
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Add Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="mybutton"></button>
                   </div>
-                    <div class="container mt-5 addnewtask">
-                      <button
-                        type="button"
-                        class="btn btn-primary addnewtask "
-                        data-bs-toggle="modal"
-                        data-bs-target="#myModal"
-                      >
-                        Add New Task
-                      </button>
-                      <br><br>
-                      <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Add Task</h5>
-                              <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="mybutton"
-                              ></button>
-                            </div>
-                            <div class="modal-body">
-                              <form id="newTaskForm">
-                                <div class="form-group">
-                                  <label for="newTaskNameInput">Name:</label>
-                                  <input
-                                    type="text"
-                                    class="form-control"
-                                    id="newTaskNameInput"
-                                   
-                                  />
-                                  <div class="invalid-feedback">
-                                    Please enter a valid Name 
-                                  </div>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label for="newTaskDescription">Description:</label>
-                                  <textarea
-                                    class="form-control"
-                                    id="newTaskDescription"
-                                  ></textarea>
-                                  <div class="invalid-feedback">
-                                    Please enter a valid Description 
-                                  </div>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="form-row">
-                                  <div class="form-group col">
-                                    <label for="newTaskAssignedTo">Assigned To:</label>
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="newTaskAssignedTo"
-                                    />
-                                    <div class="invalid-feedback">
-                                      Please enter a valid Assigne 
-                                    </div>
-                                    <div class="valid-feedback">
-                                      Looks good!
-                                    </div>
-                                  </div>
-                                  <div class="form-group col">
-                                    <label for="newTaskDueDate">Due Date:</label>
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="newTaskDueDate"
-                                    />
-                                    <div class="invalid-feedback">
-                                      Please enter a valid Date 
-                                    </div>
-                                    <div class="valid-feedback">
-                                      Looks good!
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group col">
-                                <label for="status">Status:</label>
-                                <br />
-                                <select
-                                  class="custom-select"
-                                  id="status"
-                                  aria-label="Example select with button addon"
-                                >
-                                  <!-- <select class="select" id="state"> -->
-                                  <!-- <option selected>Choose...</option> -->
-                                  <option value="1">TODO</option>
-                                  <option value="2">IN PROGRESS</option>
-                                  <option value="3">REVIEW</option>
-                                  <option value="4">DONE</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                  Please enter a valid Date 
-                                </div>
-                                <div class="valid-feedback">
-                                  Looks good!
-                                </div>
-                              </div>
-                                <br /><br />
-                                <button type="submit" class="btn btn-primary btn-lg" id='submitBtn'>
-                                  Submit
-                                </button>
-                                <button
-                                  class="btn btn-primary btn-lg"
-                                  type="reset"
-                                  id='resetBtn'
-                                >Reset</button>
-                              </form>
-                            </div>
+                  <div class="modal-body">
+                    <form id="newTaskForm">
+                      <div class="form-group">
+                        <label for="newTaskNameInput">Name:</label>
+                        <input type="text" class="form-control" id="newTaskNameInput" />
+                        <div class="invalid-feedback">
+                          Please enter a valid Name
+                        </div>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="newTaskDescription">Description:</label>
+                        <textarea class="form-control" id="newTaskDescription"></textarea>
+                        <div class="invalid-feedback">
+                          Please enter a valid Description
+                        </div>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col">
+                          <label for="newTaskAssignedTo">Assigned To:</label>
+                          <input type="text" class="form-control" id="newTaskAssignedTo" />
+                          <div class="invalid-feedback">
+                            Please enter a valid Assigne
+                          </div>
+                          <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                        </div>
+                        <div class="form-group col">
+                          <label for="newTaskDueDate">Due Date:</label>
+                          <input type="date" class="form-control" id="newTaskDueDate" />
+                          <div class="invalid-feedback">
+                            Please enter a valid Date
+                          </div>
+                          <div class="valid-feedback">
+                            Looks good!
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <!-- <p>
+                      <div class="form-group col">
+                        <label for="status">Status:</label>
+                        <br />
+                        <select class="custom-select" id="status" aria-label="Example select with button addon">
+                          <!-- <select class="select" id="state"> -->
+                          <!-- <option selected>Choose...</option> -->
+                          <option value="TO DO">TO DO</option>
+                          <option value="IN PROGRESS">IN PROGRESS</option>
+                          <option value="REVIEW">REVIEW</option>
+                          <option value="DONE">DONE</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please enter a valid Date
+                        </div>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div>
+                      <br /><br />
+                      <button type="submit" class="btn btn-primary btn-lg" id='submitBtn'>
+                        Submit
+                      </button>
+                      <button class="btn btn-primary btn-lg" type="reset" id='resetBtn'>Reset</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <p>
                               <span><button type="button" class="btn btn-primary float-left" id="addTaskBtn">Add New Task</button></span>
                             </p><br/><br/> -->
-                    <ul class="list-group" id="tasksList">
-                      <li class="list-group-item">
-                        <div
-                          class="
-                            d-flex
-                            w-100
-                            mt-2
-                            justify-content-between
-                            align-items-center
-                          "
-                        >
-                          <h5>Buy Groceries</h5>
-                          <span class="badge badge-danger">TODO</span>
-                        </div>
-                        <div class="d-flex w-100 mb-3 justify-content-between">
-                          <small>Assigned To: Anna</small>
-                          <small>Due: 20/10/2020</small>
-                        </div>
-                        <p>Buy Groceries from the store. Checklist on phone</p>
-                        <p>
-                          <button class="edit btn btn-info btn-sm" name="edit">
-                            EDIT
-                          </button>
-                          <button class="delete btn btn-danger btn-sm" name="delete">
-                            DELETE
-                          </button>
-                        </p>
-                      </li>
-                    </ul>
-                    <ul class="list-group" id="tasksLists">
-                      <li class="list-group-item">
-                        <div
-                          class="
-                            d-flex
-                            w-100
-                            mt-2
-                            justify-content-between
-                            align-items-center
-                          "
-                        >
-                          <h5>Swim Lessons</h5>
-                          <span class="badge badge-danger">TODO</span>
-                        </div>
-                        <div class="d-flex w-100 mb-3 justify-content-between">
-                          <small>Assigned To: Anna</small>
-                          <small>Due: 22/10/2020</small>
-                        </div>
-                        <p>Swim lessons at the centre.</p>
-                        <p>
-                          <button class="edit btn btn-info btn-sm" name="edit">
-                            EDIT
-                          </button>
-                          <button class="delete btn btn-danger btn-sm " name="delete">
-                            DELETE
-                          </button>
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-            </div>
+
+          <div class="row align-items-center" id="task-list" >
+
+          </div>                  
+          <!-- <ul class="list-group" id="tasksList">
+            <li class="list-group-item">
+              <div class=" d-flex w-100 mt-2 justify-content-between align-items-center ">
+                <h5>Buy Groceries</h5>
+                <span class="badge text-dark ">TODO</span>
+
+              </div>
+              <div class="d-flex w-100 mb-3 justify-content-between">
+                <small>Assigned To: Anna</small>
+                <small>Due: 20/10/2020</small>
+              </div>
+              <p>Buy Groceries from the store. Checklist on phone</p>
+              <p>
+                <button class="edit btn btn-info btn-sm" name="edit">
+                  EDIT
+                </button>
+                <button class="delete btn btn-danger btn-sm" name="delete">
+                  DELETE
+                </button>
+              </p>
+            </li>
+          </ul>
+          <ul class="list-group" id="tasksLists">
+            <li class="list-group-item">
+              <div class=" d-flex w-100 mt-2 justify-content-between align-items-center">
+                <h5>Swim Lessons</h5>
+                <span class="badge text-dark ">TODO</span>
+              </div>
+              <div class="d-flex w-100 mb-3 justify-content-between">
+                <small>Assigned To: Anna</small>
+                <small>Due: 22/10/2020</small>
+              </div>
+              <p>Swim lessons at the centre.</p>
+              <p>
+                <button class="edit btn btn-info btn-sm" name="edit">
+                  EDIT
+                </button>
+                <button class="delete btn btn-danger btn-sm " name="delete">
+                  DELETE
+                </button>
+              </p>
+            </li>
+          </ul> -->
         </div>
-    </section>
-    <footer class="py-5 ">
-        <div class="container">
-            <p class="text-center  m-0 small">Copyright&nbsp;© AB 2021</p>
-        </div>
-    </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      </div>
+    </div>
+  </section>
+  <footer class="py-5 ">
+    <div class="container">
+      <p class="text-center  m-0 small">Copyright&nbsp;© ABT 2021</p>
+    </div>
+  </footer>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
