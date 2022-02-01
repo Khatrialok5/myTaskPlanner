@@ -4,7 +4,7 @@ let statustag
   if (status === "DONE")
   {
     statustag= `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
-    document.querySelector("#done-button").style.display="none"
+   // document.querySelector("#done-button").style.display="none"
    
   }else{
       statustag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
@@ -83,6 +83,27 @@ class TaskManager {
     // Return the found task
     return foundTask;
 
+  }
+
+
+  //saving data in local storage
+  save(){
+    const tasksJson = JSON.stringify(this.tasks) 
+    localStorage.setItem("tasks", tasksJson)
+    // const currentId = JSON.stringify(this.currentId)
+    // localStorage.setItem("currentId", currentId)
+
+  }
+//Loading data from local storage
+  load(){
+    if(localStorage.getItem("tasks")){
+      const taskJson = localStorage.getItem("tasks")
+      this.tasks=JSON.parse(taskJson)
+    }
+    // if(localStorage.getItem("currentId")){
+    //   const currentId = localStorage.getItem("currentId")
+    //   this.currentId=Number(currentId)
+    // }
   }
 
 

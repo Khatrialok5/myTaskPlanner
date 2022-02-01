@@ -46,7 +46,8 @@
 
 // Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
-
+taskManager.load()
+taskManager.render()
 
 //Dispaly of today date on the index.html
 const todayDate = new Date().toLocaleDateString()
@@ -152,6 +153,7 @@ form.addEventListener("submit", (event) => {
     );
     clearFormFields();
     taskManager.render();
+    taskManager.save();
   }
 });
 
@@ -162,7 +164,7 @@ const clearFormFields = () => {
   validateName.value = "";
   validateDescription.value = "";
   validateAssignedTo.value = "";
-  validateStatus.value = "TO DO";
+  validateStatus.value = "IN PROGRESS";
   validateDueDate.value = "";
   validateName.classList.remove("is-valid");
   validateDescription.classList.remove("is-valid");
@@ -179,10 +181,11 @@ if(event.target.classList.contains("done-button")){
   // console.log(parentTask)
   const taskId = (parentTask.dataset.taskId)
   // console.log("taskIID: "+taskId)
-  const task = taskManager.getTaskById(taskId);
+  const task = taskManager.getTaskById(taskId)
   console.log(task)
-  task.task.status = "DONE";
-  taskManager.render();
+  task.task.status = "DONE"
+  taskManager.render()
+  taskManager.save()
 
 
 }
