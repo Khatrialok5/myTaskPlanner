@@ -74,13 +74,13 @@ form.addEventListener("submit", (event) => {
   // Prevent default action
   event.preventDefault();
 
-  
+
   let validationFail = 0;
 
 
   //   event.stopPropagation();
 
-  
+
 
   console.log("Task Name :" + validateName.value.length);
   console.log("Task Description :" + validateDescription.value.length);
@@ -110,16 +110,18 @@ form.addEventListener("submit", (event) => {
 
   // Form validation for Task Assigned Field min length 5
   if (validateAssignedTo.value.length > 5) {
+    console.log("valid"+validateAssignedTo.value.length)
     validateAssignedTo.classList.add("is-valid");
     validateAssignedTo.classList.remove("is-invalid");
   } else {
+    console.log("invalid"+validateAssignedTo.value.length)
     validateAssignedTo.classList.add("is-invalid");
     validateAssignedTo.classList.remove("is-valid");
     validationFail++;
   }
   // Form validation for Due Date Field not empty
   // try your own validation for a date in the future
-  if (validateDueDate.value) {
+  if (Date.now()< Date.parse(validateDueDate.value)) {
     validateDueDate.classList.add("is-valid");
     validateDueDate.classList.remove("is-invalid");
   } else {
@@ -158,7 +160,7 @@ form.addEventListener("submit", (event) => {
 });
 
 
-  // Call this to clear all the form fields after the submission
+// Call this to clear all the form fields after the submission
 
 const clearFormFields = () => {
   validateName.value = "";
@@ -174,19 +176,37 @@ const clearFormFields = () => {
 }
 
 
-const tasksList= document.querySelector("#task-list")
+const tasksList = document.querySelector("#task-list")
+
 tasksList.addEventListener('click', (event) => { // "event" here is the event parameter
-if(event.target.classList.contains("done-button")){
-  const parentTask = event.target.parentElement.parentElement.parentElement
-  // console.log(parentTask)
-  const taskId = (parentTask.dataset.taskId)
-  // console.log("taskIID: "+taskId)
-  const task = taskManager.getTaskById(taskId)
-  console.log(task)
-  task.task.status = "DONE"
-  taskManager.render()
-  taskManager.save()
+      if (event.target.classList.contains("done-button")) {
+        const parentTask = event.target.parentElement.parentElement.parentElement
+        // console.log(parentTask)
+        const taskId = (parentTask.dataset.taskId)
+        // console.log("taskIID: "+taskId)
+        const task = taskManager.getTaskById(taskId)
+        console.log(task)
+        task.task.status = "DONE"
+        taskManager.render()
+        taskManager.save()
 
 
-}
-});
+      }
+    })
+      tasksList.addEventListener('click', (event) => { // "event" here is the event parameter
+        if (event.target.classList.contains("delete-button")) {
+          const parentTask = event.target.parentElement.parentElement.parentElement
+          // console.log(parentTask)
+          const taskId = (parentTask.dataset.taskId)
+          //console.log("taskIID: " + taskId)
+          const task = taskManager.getTaskById(taskId)
+          //console.log(task)
+          taskManager.deleteTask(taskId)
+          taskManager.save()
+          taskManager.render()
+
+
+
+        }
+
+      })

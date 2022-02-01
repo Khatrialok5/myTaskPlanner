@@ -1,14 +1,13 @@
 // method to create task card
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-let statustag
-  if (status === "DONE")
-  {
-    statustag= `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
-   // document.querySelector("#done-button").style.display="none"
-   
-  }else{
-      statustag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
-    
+  let statustag
+  if (status === "DONE") {
+    statustag = `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
+    // document.querySelector("#done-button").style.display="none"
+
+  } else {
+    statustag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
+
   }
 
   const html = `
@@ -57,13 +56,13 @@ class TaskManager {
       dueDate: dueDate,
       status: status
     }
-    this.tasks.push({
+    this.tasks.push(
       task
-    })
+    )
     console.table(this.tasks)
   }
 
-  getTaskById(taskId){
+  getTaskById(taskId) {
     console.log(taskId)
 
     // Create a variable to store the found task
@@ -72,10 +71,10 @@ class TaskManager {
     for (let i = 0; i < this.tasks.length; i++) {
       // Get the current task in the loop
       const task = this.tasks[i];
-      console.log("task in get id:" +task)
+      console.log("task in get id:" + task)
       // Check if its the right task by comparing the task's id to the id passed as a parameter
       if (task.task.id === taskId) {
-        console.log("taskid in get id:" +task.task.id)
+        console.log("taskid in get id:" + task.task.id)
         // Store the task in the foundTask variable
         foundTask = task;
       }
@@ -87,23 +86,45 @@ class TaskManager {
 
 
   //saving data in local storage
-  save(){
-    const tasksJson = JSON.stringify(this.tasks) 
+  save() {
+    const tasksJson = JSON.stringify(this.tasks)
     localStorage.setItem("tasks", tasksJson)
     // const currentId = JSON.stringify(this.currentId)
     // localStorage.setItem("currentId", currentId)
 
   }
-//Loading data from local storage
-  load(){
-    if(localStorage.getItem("tasks")){
+  //Loading data from local storage
+  load() {
+    if (localStorage.getItem("tasks")) {
       const taskJson = localStorage.getItem("tasks")
-      this.tasks=JSON.parse(taskJson)
+      this.tasks = JSON.parse(taskJson)
     }
     // if(localStorage.getItem("currentId")){
     //   const currentId = localStorage.getItem("currentId")
     //   this.currentId=Number(currentId)
     // }
+  }
+
+  //deleteing a task 
+
+  deleteTask(taskId) {
+    console.log(" task id in delete" + taskId)
+    const newTasks = []
+    for (let i = 0; i < this.tasks.length; i++) {
+
+      const task = this.tasks[i]
+
+      if (task.id !== taskId) {
+
+        newTasks.push(task)
+        console.log("new task id" + task.id)
+
+      }
+      
+    }
+    this.tasks = newTasks
+    console.log(this.tasks)
+
   }
 
 
@@ -113,24 +134,24 @@ class TaskManager {
 
     for (let i in this.tasks) {
       let task = this.tasks[i]
+      console.log(task)
 
-
-      const date = new Date(task.task.dueDate);
+      const date = new Date(task.dueDate);
       const formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
       let taskHtml = createTaskHtml(
-        task.task.id,
-        task.task.name,
-        task.task.description,
-        task.task.assignedTo,
+        task.id,
+        task.name,
+        task.description,
+        task.assignedTo,
         formattedDate,
-        task.task.status
+        task.status
       );
       tasksHtmlList.push(taskHtml);
     }
-    //const tasksHtml = tasksHtmlList.join("\n");
+    const tasksHtml = tasksHtmlList.join("\n");
 
     const tasksList = document.querySelector("#task-list");
-    tasksList.innerHTML = tasksHtmlList;
+    tasksList.innerHTML = tasksHtml;
   }
 
 }
