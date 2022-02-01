@@ -170,3 +170,20 @@ const clearFormFields = () => {
   validateStatus.classList.remove("is-valid");
   validateDueDate.classList.remove("is-valid");
 }
+
+
+const tasksList= document.querySelector("#task-list")
+tasksList.addEventListener('click', (event) => { // "event" here is the event parameter
+if(event.target.classList.contains("done-button")){
+  const parentTask = event.target.parentElement.parentElement.parentElement
+  // console.log(parentTask)
+  const taskId = (parentTask.dataset.taskId)
+  // console.log("taskIID: "+taskId)
+  const task = taskManager.getTaskById(taskId);
+  console.log(task)
+  task.task.status = "DONE";
+  taskManager.render();
+
+
+}
+});
