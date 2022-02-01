@@ -26,6 +26,13 @@
       align-items:center;
     }
 
+
+    #task-list{
+      overflow:scroll;
+      height: 50vh;
+
+    }
+
     /* .addnewtask {
         margin-left: 0px;
         position: relative;
