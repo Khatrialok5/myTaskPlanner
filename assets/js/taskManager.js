@@ -1,21 +1,27 @@
-// method to create task card
+// method to create html task card
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-  let statustag
+  let statusTag
+  let buttonTag
   if (status === "DONE") {
-    statustag = `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
-      // document.querySelector("#done-button").style.display="none"
+    statusTag = `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
+    //document.querySelector("#done-button").style.display = "none"
+    buttonTag = `<button class="done btn btn-info btn-sm done-button" style="display:none"">
+    DONE
+  </button>`
 
   } else {
-    statustag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
-
+    statusTag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
+    buttonTag = `<button class="done btn btn-info btn-sm done-button" id ="done-button" name="done">
+    DONE
+  </button>`
   }
-
+// html tag
   const html = `
                 <ul class="list-group" data-task-id="${id}">
                   <li class="list-group-item">
                     <div class=" d-flex w-100 mt-2 justify-content-between align-items-center " >
                       <h5>${name}</h5>
-                      ${statustag}
+                      ${statusTag}
 
                     </div>
                     <div class="d-flex w-100 mb-3 justify-content-between">
@@ -24,9 +30,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     </div>
                     <p>Description: ${description}</p>
                     <p>
-                      <button class="done btn btn-info btn-sm done-button" id ="done-button" name="done">
-                        DONE
-                      </button>
+                      ${buttonTag}
                       <button class="delete btn btn-danger btn-sm delete-button" name="delete">
                         DELETE
                       </button>
@@ -39,6 +43,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   return html;
 }
 
+//class Task Manager
 
 class TaskManager {
   constructor(currentId = 0) {
@@ -62,6 +67,8 @@ class TaskManager {
     console.table(this.tasks)
   }
 
+
+  // to get the task id
   getTaskById(taskId) {
     console.log(taskId)
 
@@ -93,6 +100,7 @@ class TaskManager {
     // localStorage.setItem("currentId", currentId)
 
   }
+
   //Loading data from local storage
   load() {
     if (localStorage.getItem("tasks")) {
@@ -108,7 +116,6 @@ class TaskManager {
   //deleteing a task 
 
   deleteTask(taskId) {
-    console.log(" task id in delete" + taskId)
     const newTasks = []
     for (let i = 0; i < this.tasks.length; i++) {
 
@@ -117,20 +124,18 @@ class TaskManager {
       if (task.id !== taskId) {
 
         newTasks.push(task)
-        console.log("new task id" + task.id)
 
       }
-      
+
     }
     this.tasks = newTasks
     console.log(this.tasks)
 
   }
 
-
+//render function
   render() {
     let tasksHtmlList = [];
-
 
     for (let i in this.tasks) {
       let task = this.tasks[i]
