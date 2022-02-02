@@ -45,21 +45,28 @@
   </header>
   <section>
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center ">
         <div class="col">
+          <div class="text-center">
+            <button type="button" class="btn btn-primary text-center my-3" data-bs-toggle="modal" data-bs-target="#myModal">
+              ADD NEW TASK 
+            </button>
+          </div>
+          
           <div class="title-date-container">
             <h2 class="tasks">Tasks</h2>
             <div id='dateDisplay'>
               DATE:
             </div>
           </div>
+
+
+        
+ <!-- ADD TASK MODAL -->
           <div class="container mt-5 addnewtask">
-            <button type="button" class="btn btn-primary addnewtask " data-bs-toggle="modal" data-bs-target="#myModal">
-              Add New Task
-            </button>
-            <br><br>
-            <div class="modal" id="myModal">
-              <div class="modal-dialog">
+            <div class="modal fade" tabindex="-1" id="myModal" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Add Task</h5>
@@ -137,6 +144,7 @@
           </div>
 
           <div class="row align-items-center" id="task-list">
+            <!-- <img class="img-fluid" src="./resources/images/undraw_No_data_re_kwbl.png" alt="no list image"> -->
 
           </div>
         </div>

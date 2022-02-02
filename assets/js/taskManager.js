@@ -3,7 +3,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   let statustag
   if (status === "DONE") {
     statustag = `<span class="badge badge-success" style="background-color:green">  ${status}</span>`
-    // document.querySelector("#done-button").style.display="none"
+      // document.querySelector("#done-button").style.display="none"
 
   } else {
     statustag = `<span class="badge text-dark " style="background-color:yellow">${status}</span>`
@@ -73,8 +73,8 @@ class TaskManager {
       const task = this.tasks[i];
       console.log("task in get id:" + task)
       // Check if its the right task by comparing the task's id to the id passed as a parameter
-      if (task.task.id === taskId) {
-        console.log("taskid in get id:" + task.task.id)
+      if (task.id === taskId) {
+        console.log("taskid in get id:" + task.id)
         // Store the task in the foundTask variable
         foundTask = task;
       }
@@ -148,7 +148,7 @@ class TaskManager {
       );
       tasksHtmlList.push(taskHtml);
     }
-    const tasksHtml = tasksHtmlList.join("\n");
+    const tasksHtml = tasksHtmlList.join("\n<br>");
 
     const tasksList = document.querySelector("#task-list");
     tasksList.innerHTML = tasksHtml;

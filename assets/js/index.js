@@ -186,7 +186,7 @@ tasksList.addEventListener('click', (event) => { // "event" here is the event pa
         // console.log("taskIID: "+taskId)
         const task = taskManager.getTaskById(taskId)
         console.log(task)
-        task.task.status = "DONE"
+        task.status = "DONE"
         taskManager.render()
         taskManager.save()
 
