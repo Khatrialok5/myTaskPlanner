@@ -37,9 +37,9 @@
     <div class="masthead-content text-center">
       <!-- <h1 class="masthead-heading mb-0">My To-Do App</h1> -->
       
-        <h2 >My </h2> 
+        <h2 >My</h2> 
         <h2 class="span"> 
-          <span> To Do App. </span>
+          <span>To Do App. </span>
         </h2>
         
       
@@ -101,7 +101,19 @@
                           Looks good!
                         </div>
                       </div>
-                      <div class="form-group ">
+
+                      <div class="form-group">
+                        <label for="newTask-AssignedTo">Assigned To:</label>
+                        <textarea class="form-control" id="newTask-AssignedTo"></textarea>
+                        <div class="invalid-feedback">
+                          Please enter a valid Assigned To
+                        </div>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div>
+
+                      <!-- <div class="form-group ">
                         <label for="newTaskAssignedTo">Assigned To:</label>
                         <input type="text" class="form-control" id="newTaskAssignedTo" />
                         <div class="invalid-feedback">
@@ -110,8 +122,8 @@
                         <div class="valid-feedback">
                           Looks good!
                         </div>
-                      </div>
-                      <div class="form-group ">
+                      </div> -->
+                      <div class="form-group">
                         <label for="newTaskDueDate">Due Date:</label>
                         <input type="date" class="form-control" id="newTaskDueDate" />
                         <div class="invalid-feedback">

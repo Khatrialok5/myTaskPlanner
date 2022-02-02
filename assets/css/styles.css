@@ -39,8 +39,10 @@
   height: 50vh;
   background: linear-gradient(to right, rgba(221, 6, 6, 0.3), rgb(247, 162, 4, 0.3), rgba(245, 245, 6, 0.3), rgb(3, 245, 3, .3), rgba(3, 3, 238, 0.3), rgb(136, 0, 240, .3), rgba(255, 0, 255, 0.3));
   padding: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: #fff;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* border: #fff; */
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
 
 }
 

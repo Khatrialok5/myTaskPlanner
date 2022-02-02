@@ -1,48 +1,3 @@
-// const newTaskNameInput = document.querySelector('#newTaskForm')
-// const nameValidation=document.querySelector('#newTaskNameInput')
-// const descriptionValidation=document.querySelector('#newTaskDescription')
-// const assignedToValidation=document.querySelector('#newTaskAssignedTo')
-// const dueDateValidation=document.querySelector('#newTaskDueDate')
-// const statusValidation=document.querySelector('#status')
-// const submitButton=document.querySelector('#submitBtn')
-
-
-
-
-// submitButton.addEventListener('click', validFormFieldInput)
-// // function to validate input in the form
-
-// function validFormFieldInput(){
-//     //let title=nameValidation.value
-// if(nameValidation.value === "" || nameValidation.value.length < 5){
-//     return false
-// }else if(descriptionValidation.value === "" || descriptionValidation.value.length < 5){
-//     return false
-// }else if(assignedToValidation.value === "" || assignedToValidation.value.length < 5){
-//     return false
-// }else if(!dueDateValidation.value){    //check it once again 
-//     return false
-// }else if(!statusValidation){
-//     return false
-// }else{
-//     return true
-// }
-
-
-// }
-
-
-
-// // reset function
-// // const resetBtn=document.querySelector('#resetBtn')
-// // resetBtn.addEventListener('click',resetAllInput)
-// // function resetAllInput(){
-// //     nameValidation.value=""
-// //     descriptionValidation.value=""
-// //     assignedToValidation.value=""
-
-// // }
-
 
 // Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
@@ -56,16 +11,13 @@ let span = document.createElement("SPAN");
 span.innerHTML = todayDate
 dateDisplay.appendChild(span)
 
-
-
-
 // Select the New Task Form
 const form = document.querySelector("#newTaskForm");
 
 // Select the inputs
 const validateName = document.querySelector("#newTaskNameInput");
 const validateDescription = document.querySelector("#newTaskDescription");
-const validateAssignedTo = document.querySelector("#newTaskAssignedTo");
+const validate_AssignedTo = document.querySelector("#newTask-AssignedTo");
 const validateDueDate = document.querySelector("#newTaskDueDate");
 const validateStatus = document.querySelector("#status");
 // Add an 'onsubmit' event listener
@@ -84,7 +36,7 @@ form.addEventListener("submit", (event) => {
 
   console.log("Task Name :" + validateName.value.length);
   console.log("Task Description :" + validateDescription.value.length);
-  console.log("Task Assigned To :" + validateAssignedTo.value.length);
+  console.log("Task Assigned To :" + validate_AssignedTo.value.length);
   console.log("Task Due Date :" + validateDueDate.value);
   console.log("Task Status:" + validateStatus.value);
 
@@ -109,14 +61,14 @@ form.addEventListener("submit", (event) => {
   }
 
   // Form validation for Task Assigned Field min length 5
-  if (validateAssignedTo.value.length > 5) {
-    console.log("valid" + validateAssignedTo.value.length)
-    validateAssignedTo.classList.add("is-valid");
-    validateAssignedTo.classList.remove("is-invalid");
+  if (validate_AssignedTo.value.length > 5) {
+    console.log("valid" + validate_AssignedTo.value.length)
+    validate_AssignedTo.classList.add("is-valid");
+    validate_AssignedTo.classList.remove("is-invalid");
   } else {
-    console.log("invalid" + validateAssignedTo.value.length)
-    validateAssignedTo.classList.add("is-invalid");
-    validateAssignedTo.classList.remove("is-valid");
+    console.log("invalid" + validate_AssignedTo.value.length)
+    validate_AssignedTo.classList.add("is-invalid");
+    validate_AssignedTo.classList.remove("is-valid");
     validationFail++;
   }
   // Form validation for Due Date Field not empty
@@ -130,12 +82,12 @@ form.addEventListener("submit", (event) => {
     validationFail++;
   }
   // Form validation for Task Status Field not empty
-  if (validateAssignedTo.value) {
-    validateAssignedTo.classList.add("is-valid");
-    validateAssignedTo.classList.remove("is-invalid");
+  if (validateStatus.value) {
+    validateStatus.classList.add("is-valid");
+    validateStatus.classList.remove("is-invalid");
   } else {
-    validateAssignedTo.classList.add("is-invalid");
-    validateAssignedTo.classList.remove("is-valid");
+    validateStatus.classList.add("is-invalid");
+    validateStatus.classList.remove("is-valid");
     validationFail++;
   }
   // If validation fails then function will not proceed further and
@@ -149,7 +101,7 @@ form.addEventListener("submit", (event) => {
     taskManager.addTask(
       validateName.value,
       validateDescription.value,
-      validateAssignedTo.value,
+      validate_AssignedTo.value,
       validateDueDate.value,
       validateStatus.value
     );
@@ -165,12 +117,12 @@ form.addEventListener("submit", (event) => {
 const clearFormFields = () => {
   validateName.value = "";
   validateDescription.value = "";
-  validateAssignedTo.value = "";
+  validate_AssignedTo.value = "";
   validateStatus.value = "IN PROGRESS";
   validateDueDate.value = "";
   validateName.classList.remove("is-valid");
   validateDescription.classList.remove("is-valid");
-  validateAssignedTo.classList.remove("is-valid");
+  validate_AssignedTo.classList.remove("is-valid");
   validateStatus.classList.remove("is-valid");
   validateDueDate.classList.remove("is-valid");
 }
