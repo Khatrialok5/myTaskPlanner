@@ -20,7 +20,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     </div>
                     <div class="d-flex w-100 mb-3 justify-content-between">
                       <small>Assigned To: ${assignedTo}</small>
-                      <small>Due: ${dueDate}</small>
+                      <small >Due: <span style="color:red">${dueDate}</span></small>
                     </div>
                     <p>Description: ${description}</p>
                     <p>
